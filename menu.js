@@ -31,7 +31,14 @@ const logger = funct => console.log(funct)
 */
 
 //CODE HERE
-
+let pizza = {
+    name: `Classic Italian`,
+    price: 15,
+    category: `Entree`,
+    popularity: 18,
+    rating: 7,
+    tags: [`pizza`, `meat`, `pepperoni`, `cheese`, `entree`, `main course`]
+}
 
 
 //////////////////PROBLEM 2////////////////////
@@ -43,7 +50,7 @@ const logger = funct => console.log(funct)
 */
 
 //CODE HERE
-
+logger(pizza.popularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -53,7 +60,7 @@ const logger = funct => console.log(funct)
 */
 
 //CODE HERE
-
+logger(pizza.tags[1])
 
 /*
     Third, destructure the price off of the
@@ -63,7 +70,8 @@ const logger = funct => console.log(funct)
 */
 
 //CODE HERE
-
+let {price} = pizza;
+logger(price)
 
 /*
     Fourth, and last, destructure the category
@@ -73,7 +81,8 @@ const logger = funct => console.log(funct)
 */
 
 //CODE HERE
-
+let {category} = pizza;
+logger(category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -88,7 +97,43 @@ const logger = funct => console.log(funct)
 */
 
 //CODE HERE
-
+let foodArr = [
+    {
+        name:`fries`,
+        price:3.5,
+        category:`side`,
+        popularity: 6,
+        rating: 6,
+        tags:[`side`, `potatoes`, `fries`]
+    }, {
+        name:`soda`,
+        price:2,
+        category:`drink`,
+        popularity: 2,
+        rating: 8,
+        tags:[`drink`, `soda`]
+    }, {
+        name:`side salad`,
+        price:4,
+        category:`side`,
+        popularity: 14,
+        rating: 8.5,
+        tags:[`side`, `vegetables`, `salad`, `green`]
+    }, {
+        name:`poison`,
+        price:200,
+        category:`drink`,
+        popularity: 150,
+        rating: 1,
+        tags:[`poison`, `drink`, `DO_NOT_ORDER`]
+    }, {
+        name:`chicken bacon ranch`,
+        price:16,
+        category:`entree`,
+        popularity:10,
+        rating:8.5,
+        tags:[`entree`, `pizza`, `chicken`, `bacon`, `ranch`, `delicious`]
+    }]
 
 
 //////////////////PROBLEM 4////////////////////
@@ -105,7 +150,13 @@ const logger = funct => console.log(funct)
 
 //CODE HERE
 
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
+const filteredFood = foodArr.filter(function(array){
+    if (array[`tags`].includes(`fries`)) {
+        return array[`name`]
+    }
+})
+
+logger(filteredFood)
 
 
 
@@ -149,6 +200,24 @@ const logger = funct => console.log(funct)
 */
 
 //CODE HERE
+function filterByProperty (property, number, type) {
+
+    let filteredArr = [];
+
+    filteredArr = foodArr.filter(function(element){
+        element = property
+        if (type === `above`) {
+            element > number
+            
+        } else if (type === `below`) {
+            
+            
+        } else {
+
+            return 'please try again.'
+        }})
+    return filteredArr;
+}
 
 
 /*
@@ -159,3 +228,4 @@ const logger = funct => console.log(funct)
 */
 
 //CODE HERE
+logger(filterByProperty(`popularity`, 4, `above`))
