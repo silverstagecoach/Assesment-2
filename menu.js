@@ -204,18 +204,19 @@ function filterByProperty (property, number, type) {
 
     let filteredArr = [];
 
-    filteredArr = foodArr.filter(function(element){
-        element = property
-        if (type === `above`) {
-            element > number
-            
-        } else if (type === `below`) {
-            
-            
-        } else {
-
-            return 'please try again.'
-        }})
+    filteredArr = foodArr.filter(function(){
+        foodArr.forEach(element => {
+            if (type === `above`) {
+                if (foodArr.element[property] > number) {
+                    filteredArr += foodArr.element
+                }
+            } else if (type === `below`) {
+                if (foodArr.element[property] < number) {
+                    filteredArr += foodArr.element
+                }
+            }           
+        });
+})
     return filteredArr;
 }
 
@@ -228,4 +229,4 @@ function filterByProperty (property, number, type) {
 */
 
 //CODE HERE
-logger(filterByProperty(`popularity`, 4, `above`))
+logger(filterByProperty(`rating`, 7, `above`))
