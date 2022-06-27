@@ -35,8 +35,8 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
+const summedPrice = cart.reduce((curr, acc) => curr + acc.price, 0)
+logger(summedPrice)
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -54,9 +54,11 @@ const cart = [
 */
 
 //CODE HERE
+function calcFinalPrice(cartTotal, couponValue, tax) {
+    return finalTotal = Math.fround(cartTotal + (cartTotal * tax) - couponValue);
+}
 
-
-
+logger(calcFinalPrice(summedPrice, 0, .06))
 //////////////////PROBLEM 3////////////////////
 /*  
     In this problem, you'll create a model for 
@@ -79,7 +81,16 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
-
+    customer object =
+    address : string
+        // location typically uses letters, so we have to as well
+    uniqueCustomerId : string
+        // a string data type allows for more characters to use, and can be uniquely assigned
+    orderDetails : array of objects
+        // a collection of objects, which can tell unique item details in the objects, as well as quantity. The array storing them allows for complex collections of carts.
+    total : number
+        // only numbers! representing money
+    =
 */
 
 /*
@@ -88,3 +99,11 @@ const cart = [
 */
 
 //CODE HERE
+const customer = {
+    address: `42 Wallaby Way, Sydney, Australia`,
+    uniqueCustomerId: `D92jk#G9d`,
+    orderDetails: [
+        item = {name:`PlasmaTV`,price:5999,qrCode:`a651sdv7w56`}, item2 = {name:`Banana Republic Tee`,price:21,qrCode:`sv6wet312`}
+    ],
+    total: 11145.24
+}
